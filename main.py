@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
 from uuid import UUID
@@ -193,3 +194,11 @@ async def create_webinar(webinar_data: WebinarBase, current_user: UserInDB = Dep
     if response.data:
         return WebinarInDB(**response.data[0])
     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Webinar creation failed")
+=======
+def main():
+    print("Hello from golden-child!")
+
+
+if __name__ == "__main__":
+    main()
+>>>>>>> origin/Genesis

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [tool.poetry]
 name = "finlit-backend"
 version = "0.1.0"
@@ -21,3 +22,17 @@ passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+=======
+[project]
+name = "golden-child"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "code",
+    "fastapi>=0.116.1",
+    "npm>=0.1.1",
+    "supabase>=2.18.1",
+]
+>>>>>>> origin/Genesis

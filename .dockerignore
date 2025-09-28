@@ -1,0 +1,36 @@
+# Ignore macOS resource fork files
+._*
+.DS_Store
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore IDE and editor files
+.vscode
+.idea
+
+# Ignore environment files
+.env
+.env.*
+!.env.example
+
+# Ignore dependency directories
+node_modules
+.venv
+__pycache__
+*.pyc
+
+# Ignore build artifacts
+dist
+build
+*.egg-info
+
+# Ignore logs
+*.log
+logs
+
+# Ignore temporary files
+*.tmp
+*.temp
+.cache
