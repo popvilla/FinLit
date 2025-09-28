@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
 from uuid import UUID
 from typing import List
-from datetime import datetime
+from datetime import datetime, timedelta
+from fastapi.security import OAuth2PasswordRequestForm
 
 from .database import supabase
 from .models import (
@@ -50,6 +50,8 @@ async def signup_user(user_data: UserCreate):
 
     hashed_password = get_password_hash(user_data.password)
     user_dict = user_data.model_dump()
+    # Self-service signup always creates student accounts to prevent privilege escalation.
+    user_dict["role"] = "student"
     user_dict["password_hash"] = hashed_password
     del user_dict["password"]
 
@@ -64,8 +66,8 @@ async def signup_user(user_data: UserCreate):
     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="User registration failed")
 
 @app.post("/token", response_model=Token, tags=["Auth"])
-async def login_for_access_token(form_data: UserCreate):
-    response = supabase.table("users").select("id, email, password_hash, role").eq("email", form_data.email).single().execute()
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
+    response = supabase.table("users").select("id, email, password_hash, role").eq("email", form_data.username).single().execute()
     user_data = response.data
 
     if not user_data or not verify_password(form_data.password, user_data["password_hash"]):
@@ -194,11 +196,3 @@ async def create_webinar(webinar_data: WebinarBase, current_user: UserInDB = Dep
     if response.data:
         return WebinarInDB(**response.data[0])
     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Webinar creation failed")
-=======
-def main():
-    print("Hello from golden-child!")
-
-
-if __name__ == "__main__":
-    main()
->>>>>>> origin/Genesis

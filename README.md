@@ -1,4 +1,5 @@
 # FinLit Application: Financial Literacy with Semantic Loop and Power BI Integration
+
 FinLit is an interactive financial literacy application designed for students to manage mock investment funds, make trading decisions, and track their portfolio performance. Instructors can guide students through webinars, simulate market events, and provide personalized feedback. Administrators manage accounts, generate reports, and maintain content. A chatbot offers real-time financial literacy information, navigation help, and simulated market news.
 This project integrates a Next.js/React frontend, a FastAPI (Python) backend, and a Supabase PostgreSQL database, with a focus on a "Semantic Loop" workflow using Power BI for data modeling and analytics.
 Prerequisites
@@ -22,6 +23,7 @@ Before you begin, ensure you have the following software installed on your syste
   Install: git-scm.com
 Setup & Installation
 Follow these steps to get the FinLit application up and running locally.
+
 1. Clone the Repository
 git clone <repository-url>
 cd finlit-app # Or whatever your project folder is named
@@ -38,9 +40,11 @@ supabase db push
 This will apply the initial database schema and Row-Level Security (RLS) policies defined in supabase/migrations/0001_initial_schema.sql to your local Supabase instance.
 3. Backend Setup (FastAPI)
  Navigate to the backend directory:
+
     ```bash
     cd backend
     ```
+
  Install Python dependencies using Poetry:
     ```bash
     poetry install
@@ -51,7 +55,7 @@ This will apply the initial database schema and Row-Level Security (RLS) policie
     ```
  Edit the .env file with your Supabase credentials and OpenAI API key:
     ```
-    SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
+SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
     SUPABASE_SERVICE_KEY="YOUR_SUPABASE_SERVICE_ROLE_KEY"
     OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
     ```
@@ -70,25 +74,26 @@ This will apply the initial database schema and Row-Level Security (RLS) policie
     ```
  Edit the .env.local file with your Supabase public credentials and FastAPI backend URL:
     ```
-    NEXT_PUBLIC_SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
+NEXT_PUBLIC_SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
     NEXT_PUBLIC_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
     NEXT_PUBLIC_FASTAPI_URL="http://localhost:8000"
     ```
     (The Supabase Anon Key can be found in your Supabase Project Settings > API, similar to the Service Role Key).
 Running the Application
 Ensure your local Supabase instance is running before starting the backend and frontend.
+
 1. Start Supabase (if not already running)
 From the project root directory:
 supabase start
 2. Start the Backend (FastAPI)
 From the backend directory:
 poetry run uvicorn main:app --reload --port 8000
-This will start the FastAPI server, typically accessible at http://localhost:8000.
+This will start the FastAPI server, typically accessible at <http://localhost:8000>.
 3. Start the Frontend (Next.js)
 From the frontend directory:
 npm run dev
-This will start the Next.js development server, typically accessible at http://localhost:3000.
-Open your web browser and navigate to http://localhost:3000 to access the FinLit application.
+This will start the Next.js development server, typically accessible at <http://localhost:3000>.
+Open your web browser and navigate to <http://localhost:3000> to access the FinLit application.
 Power BI Semantic Loop (Optional)
 For the Semantic Loop workflow:
  Open Power BI Desktop.
@@ -98,4 +103,4 @@ For the Semantic Loop workflow:
  Import the users, portfolios, trades, market_events, webinars, and chatbot_interactions tables.
  In the Model view, define relationships between your tables (e.g., users to portfolios via user_id).
  Create DAX measures for key metrics like "Total Profit/Loss", "Portfolio Net Growth %", etc.
- If you identify missing data points or relationships while modeling in Power BI, update your Supabase schema via a new migration, push the changes (supabase db push), and then refresh your Power BI model. This completes the 
+ If you identify missing data points or relationships while modeling in Power BI, update your Supabase schema via a new migration, push the changes (supabase db push), and then refresh your Power BI model. This completes the

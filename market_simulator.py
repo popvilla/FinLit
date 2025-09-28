@@ -57,5 +57,5 @@ def generate_market_event() -> Dict:
 
 # Example usage (can be run as a background task/cron job)
 if __name__ == "__main__":
-    print("Current AAPL price:", get_current_price("AAPL"))
+    print("Current MSFT price:", get_current_price("MSFT"))
     print("Generated market event:", generate_market_event())

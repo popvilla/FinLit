@@ -1,4 +1,6 @@
 import os
+
+import httpx
 from supabase import create_client, Client
 from dotenv import load_dotenv
 
@@ -17,4 +19,4 @@ if not SUPABASE_URL or not SUPABASE_SERVICE_KEY or not SUPABASE_ANON_KEY:
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
 
 # You might also want a client that respects RLS for certain operations
-# supabase_rls: Client = create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
+supabase_rls: Client = create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
