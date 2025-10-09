@@ -3,6 +3,7 @@ FinLit Application: Financial Literacy with Semantic Loop and Power BI Integrati
 
 FinLit is an interactive financial literacy application designed for students to manage mock investment funds, make trading decisions, and track their portfolio performance. Instructors can guide students through webinars, simulate market events, and provide personalized feedback. Administrators manage accounts, generate reports, and maintain content. A chatbot offers real-time financial literacy information, navigation help, and simulated market news.
 This project integrates a Next.js/React frontend, a FastAPI (Python) backend, and a Supabase PostgreSQL database, with a focus on a "Semantic Loop" workflow using Power BI for data modeling and analytics.
+
 Prerequisites
 Before you begin, ensure you have the following software installed on your system:
   Node.js (v18 or higher) & npm: For the Next.js frontend.
