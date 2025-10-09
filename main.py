@@ -193,12 +193,4 @@ async def create_webinar(webinar_data: WebinarBase, current_user: UserInDB = Dep
     response = supabase.table("webinars").insert(webinar_data.model_dump()).execute()
     if response.data:
         return WebinarInDB(**response.data[0])
-    raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Webinar creation failed")
-=======
-def main():
-    print("Hello from golden-child!")
-
-
-if __name__ == "__main__":
-    main()
->>>>>>> origin/Genesis
+    raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Webinar creation failed
