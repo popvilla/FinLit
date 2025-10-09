@@ -9,9 +9,9 @@ dist/
 coverage/
 .nyc_output/
 *.tsbuildinfo
-
+.
 # Environment variables
-.env
+.env*
 .env.local
 .env.*.local
 .env.development
