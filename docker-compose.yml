@@ -15,7 +15,7 @@ services:
       # Use host.docker.internal if Obsidian is running on your host machine (Mac/Windows)
       # For Linux hosts, you might need to find your host's IP or use a custom network setup.
       OBSIDIAN_BASE_URL: https://host.docker.internal:27124 # <-- Adjust if Obsidian is on a different port or in another container
-      OBSIDIAN_API_KEY: 774c8c42fb6818e239f727064110351e50fe7d61716032d4a69f6da47ce8ea56 # <-- Replace this
+      OBSIDIAN_API_KEY:  # <-- Replace this
       MCP_LOG_LEVEL: info
     networks:
       - mcp_network
@@ -26,3 +26,4 @@ networks:
     # If you want the MCP server to only communicate internally with other Docker services,
     # you can set 'internal: true' and remove the 'ports' mapping.
     # For development, keeping 'ports' and using host.docker.internal is common.
+
